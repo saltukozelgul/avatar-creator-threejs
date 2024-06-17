@@ -4,7 +4,7 @@ import { useCharacterCustomization } from "../contexts/CharacterCustomization";
 import { cameraModes } from "../enums/cameraModes";
 
 // Icons
-import { IconMoodHappy, IconShirt, IconShoe, IconBulb } from "@tabler/icons-react";
+import { IconMoodHappy, IconShirt, IconShoe, IconBulb, IconMoon, IconSun } from "@tabler/icons-react";
 import { useHudSettings } from "../contexts/HudSettings";
 import { HeadConfig } from "./Configurators/HeadConfig";
 import { BodyConfig } from "./Configurators/BodyConfig";
@@ -20,7 +20,7 @@ const camelCaseToWords = (camelCase) => {
 const Interface = () => {
   const { animations, animationIndex, setAnimationIndex } = useCharacterAnimations();
   const { camMode, setCamMode } = useCharacterCustomization();
-  const { hudColor, setHudColor } = useHudSettings();
+  const { hudColor, setHudColor, isDarkMode, setIsDarkMode } = useHudSettings();
   const [ lightSettings, setLightSettings ] = useState(false);
 
   return (
@@ -72,11 +72,21 @@ const Interface = () => {
          { lightSettings && <LightConfig /> }
         </Stack>
       </Affix>
-      <Affix position={{ top: 20, right: 20 }}>
+      <Affix position={{ top: 60, right: 20 }}>
         { camMode === cameraModes.HEAD && <HeadConfig /> }
         { camMode === cameraModes.TOP && <BodyConfig /> }
         { camMode === cameraModes.BOTTOM && <LegConfig /> }
-          
+      </Affix>
+      <Affix position={{ top: 20, right: 20 }}>
+        <Stack>
+          <Button
+            color={hudColor}
+            variant="light"
+            onClick={() => setIsDarkMode(!isDarkMode)}
+          >
+            {isDarkMode ? <IconMoon /> : <IconSun />}
+          </Button>
+        </Stack>
       </Affix>
       <Affix position={{ bottom: 50, right: 20 }}>
         <Stack>
