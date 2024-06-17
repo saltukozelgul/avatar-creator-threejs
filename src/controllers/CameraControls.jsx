@@ -3,7 +3,7 @@ import { useCharacterCustomization } from "../contexts/CharacterCustomization";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { cameraModes } from "../enums/cameraModes";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const cameraPositions = {
     [cameraModes.HEAD]: {

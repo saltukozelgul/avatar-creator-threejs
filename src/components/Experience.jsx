@@ -1,18 +1,15 @@
 import { OrbitControls } from "@react-three/drei";
 import Woman from "./Woman";
 import { CameraControls } from "../controllers/CameraControls";
+import { LightControls } from "../controllers/LightControls";
+import { useHudSettings } from "../contexts/HudSettings";
 
 const Experience = () => {
+  const { lightColor, lightIntensity, lightDistance, lightAngle } = useHudSettings();
   return (
     <>
       <CameraControls />
-      <ambientLight />
-      <directionalLight
-        position={[-5, 5, 5]}
-        castShadow
-        shadow-mapSize-width={2048}
-        shadow-mapSize-height={2048}
-      />
+      <LightControls />
       <group position={[0, -1, 0]}>
         <Woman />
       </group>
@@ -21,8 +18,8 @@ const Experience = () => {
         position={[0, -1, 0]}
         receiveShadow
       >
-        <planeBufferGeometry args={[10, 10, 1, 1]} />
-        <shadowMaterial transparent opacity={0.2} />
+        <planeBufferGeometry args={[500, 500, 1, 1]} />
+        <shadowMaterial transparent opacity={lightIntensity * 0.5} />
       </mesh>
     </>
   );

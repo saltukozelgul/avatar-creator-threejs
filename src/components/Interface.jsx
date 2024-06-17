@@ -4,11 +4,13 @@ import { useCharacterCustomization } from "../contexts/CharacterCustomization";
 import { cameraModes } from "../enums/cameraModes";
 
 // Icons
-import { IconMoodHappy, IconShirt, IconShoe, IconCameraCog } from "@tabler/icons-react";
+import { IconMoodHappy, IconShirt, IconShoe, IconBulb } from "@tabler/icons-react";
 import { useHudSettings } from "../contexts/HudSettings";
 import { HeadConfig } from "./Configurators/HeadConfig";
 import { BodyConfig } from "./Configurators/BodyConfig";
 import { LegConfig } from "./Configurators/LegConfig";
+import { useState } from "react";
+import { LightConfig } from "./Configurators/LightConfig";
 
 const camelCaseToWords = (camelCase) => {
   const result = camelCase.replace(/([A-Z])/g, " $1");
@@ -19,6 +21,7 @@ const Interface = () => {
   const { animations, animationIndex, setAnimationIndex } = useCharacterAnimations();
   const { camMode, setCamMode } = useCharacterCustomization();
   const { hudColor, setHudColor } = useHudSettings();
+  const [ lightSettings, setLightSettings ] = useState(false);
 
   return (
     <>
@@ -46,6 +49,15 @@ const Interface = () => {
             >
               Orange
             </Button>
+            <Button
+              key="light_settings"
+              color={hudColor}
+              variant={lightSettings ? "filled" : "light"}
+              onClick={() => setLightSettings(!lightSettings)}
+            >
+             <IconBulb />
+            </Button>
+            
           </Group>
           {Object.keys(cameraModes).map((mode) => (
             <Button
@@ -57,13 +69,13 @@ const Interface = () => {
               { mode === cameraModes.HEAD ? <IconMoodHappy /> : mode === cameraModes.TOP ? <IconShirt /> : mode === cameraModes.BOTTOM ? <IconShoe /> : "Free Camera" }
             </Button>
           ))}
+         { lightSettings && <LightConfig /> }
         </Stack>
       </Affix>
       <Affix position={{ top: 20, right: 20 }}>
         { camMode === cameraModes.HEAD && <HeadConfig /> }
         { camMode === cameraModes.TOP && <BodyConfig /> }
         { camMode === cameraModes.BOTTOM && <LegConfig /> }
-        { camMode === cameraModes.FREE && <Button color={hudColor} variant="filled"><IconCameraCog /></Button> }
           
       </Affix>
       <Affix position={{ bottom: 50, right: 20 }}>
