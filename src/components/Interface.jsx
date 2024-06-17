@@ -6,6 +6,9 @@ import { cameraModes } from "../enums/cameraModes";
 // Icons
 import { IconMoodHappy, IconShirt, IconShoe, IconCameraCog } from "@tabler/icons-react";
 import { useHudSettings } from "../contexts/HudSettings";
+import { HeadConfig } from "./Configurators/HeadConfig";
+import { BodyConfig } from "./Configurators/BodyConfig";
+import { LegConfig } from "./Configurators/LegConfig";
 
 const camelCaseToWords = (camelCase) => {
   const result = camelCase.replace(/([A-Z])/g, " $1");
@@ -55,6 +58,13 @@ const Interface = () => {
             </Button>
           ))}
         </Stack>
+      </Affix>
+      <Affix position={{ top: 20, right: 20 }}>
+        { camMode === cameraModes.HEAD && <HeadConfig /> }
+        { camMode === cameraModes.TOP && <BodyConfig /> }
+        { camMode === cameraModes.BOTTOM && <LegConfig /> }
+        { camMode === cameraModes.FREE && <Button color={hudColor} variant="filled"><IconCameraCog /></Button> }
+          
       </Affix>
       <Affix position={{ bottom: 50, right: 20 }}>
         <Stack>

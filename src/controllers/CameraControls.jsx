@@ -40,7 +40,6 @@ export const CameraControls = () => {
         <>
         <OrbitControls
             ref={orbitControls}
-            onStart={() => setCamMode(cameraModes.FREE)}
         />
         </>
     );
