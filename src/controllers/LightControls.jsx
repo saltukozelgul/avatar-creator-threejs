@@ -9,18 +9,7 @@ export const LightControls = () => {
     const { lightColor, lightIntensity, lightDistance, lightAngle, lightPosX, lightPosY, lightPosZ } = useHudSettings();
     return (
         <>
-      <ambientLight intensity={lightIntensity} castShadow/>
-      {/* <directionalLight
-                position={[0, 5, 5]}
-                intensity={lightIntensity}
-                color={lightColor}
-                distance={lightDistance}
-                angle={lightAngle}
-                castShadow
-                receiveShadow
-                shadow-mapSize-width={2048}
-                shadow-mapSize-height={2048}
-            /> */}
+      <ambientLight intensity={lightIntensity} />
         <pointLight
             position={[lightPosX, lightPosY, lightPosZ]}
             intensity={lightIntensity}
