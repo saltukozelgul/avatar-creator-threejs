@@ -13,7 +13,7 @@ function Woman(props) {
   const { setAnimations, animationIndex } = useCharacterAnimations();
   const { actions, names } = useAnimations(animations, group);
 
-  const { hairColor, skinColor, eyeColor, mouthColor, shirtColor, shoesColor, pantsColor, soleColor, laceColor } = useCharacterCustomization();
+  const { hairColor, skinColor, eyeColor, mouthColor, shirtColor, shoesColor, pantsColor, soleColor, laceColor, morphTargetDictionary, morphTargetInfluences, setMorphTargetDictionary, setMorphTargetInfluences } = useCharacterCustomization();
 
   useEffect(() => {
     setAnimations(names);
@@ -25,6 +25,11 @@ function Woman(props) {
       actions[names[animationIndex]].fadeOut(0.5);
     };
   }, [animationIndex]);
+
+  useEffect(() => {
+    setMorphTargetDictionary(Object.keys(nodes.Mesh019.morphTargetDictionary));
+    setMorphTargetInfluences(nodes.Mesh019.morphTargetInfluences);
+  }, []);
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -40,7 +45,7 @@ function Woman(props) {
               material={materials.Glasses}
               skeleton={nodes.Mesh019.skeleton}
               morphTargetDictionary={nodes.Mesh019.morphTargetDictionary}
-              morphTargetInfluences={nodes.Mesh019.morphTargetInfluences}
+              morphTargetInfluences={morphTargetInfluences}
             />
             <skinnedMesh
               frustumCulled={false}
@@ -49,8 +54,8 @@ function Woman(props) {
               geometry={nodes.Mesh019_1.geometry}
               material={materials.Eyes}
               skeleton={nodes.Mesh019_1.skeleton}
-              morphTargetDictionary={nodes.Mesh019_1.morphTargetDictionary}
-              morphTargetInfluences={nodes.Mesh019_1.morphTargetInfluences}
+              morphTargetDictionary={nodes.Mesh019.morphTargetDictionary}
+              morphTargetInfluences={morphTargetInfluences}
             >
               <meshStandardMaterial color={eyeColor} />
             </skinnedMesh>
@@ -61,8 +66,8 @@ function Woman(props) {
               geometry={nodes.Mesh019_2.geometry}
               material={materials.Hair}
               skeleton={nodes.Mesh019_2.skeleton}
-              morphTargetDictionary={nodes.Mesh019_2.morphTargetDictionary}
-              morphTargetInfluences={nodes.Mesh019_2.morphTargetInfluences}
+              morphTargetDictionary={nodes.Mesh019.morphTargetDictionary}
+              morphTargetInfluences={morphTargetInfluences}
             >
               <meshStandardMaterial color={hairColor} />
             </skinnedMesh>
@@ -73,8 +78,8 @@ function Woman(props) {
               geometry={nodes.Mesh019_3.geometry}
               material={materials.Skin}
               skeleton={nodes.Mesh019_3.skeleton}
-              morphTargetDictionary={nodes.Mesh019_3.morphTargetDictionary}
-              morphTargetInfluences={nodes.Mesh019_3.morphTargetInfluences}
+              morphTargetDictionary={nodes.Mesh019.morphTargetDictionary}
+              morphTargetInfluences={morphTargetInfluences}
             >
               <meshStandardMaterial color={skinColor} />
             </skinnedMesh>
@@ -85,8 +90,8 @@ function Woman(props) {
               geometry={nodes.Mesh019_4.geometry}
               material={materials.Mouth}
               skeleton={nodes.Mesh019_4.skeleton}
-              morphTargetDictionary={nodes.Mesh019_4.morphTargetDictionary}
-              morphTargetInfluences={nodes.Mesh019_4.morphTargetInfluences}
+              morphTargetDictionary={nodes.Mesh019.morphTargetDictionary}
+              morphTargetInfluences={morphTargetInfluences}
             >
               <meshStandardMaterial color={mouthColor} /> 
             </skinnedMesh>
@@ -97,8 +102,8 @@ function Woman(props) {
               geometry={nodes.Mesh019_5.geometry}
               material={materials.Shirt}
               skeleton={nodes.Mesh019_5.skeleton}
-              morphTargetDictionary={nodes.Mesh019_5.morphTargetDictionary}
-              morphTargetInfluences={nodes.Mesh019_5.morphTargetInfluences}
+              morphTargetDictionary={nodes.Mesh019.morphTargetDictionary}
+              morphTargetInfluences={morphTargetInfluences}
             >
               <meshStandardMaterial color={shirtColor} />
             </skinnedMesh>
@@ -109,8 +114,8 @@ function Woman(props) {
               geometry={nodes.Mesh019_6.geometry}
               material={materials.Pants}
               skeleton={nodes.Mesh019_6.skeleton}
-              morphTargetDictionary={nodes.Mesh019_6.morphTargetDictionary}
-              morphTargetInfluences={nodes.Mesh019_6.morphTargetInfluences}
+              morphTargetDictionary={nodes.Mesh019.morphTargetDictionary}
+              morphTargetInfluences={morphTargetInfluences}
             >
               <meshStandardMaterial color={pantsColor} />
             </skinnedMesh>
@@ -121,8 +126,8 @@ function Woman(props) {
               geometry={nodes.Mesh019_7.geometry}
               material={materials.Shoes}
               skeleton={nodes.Mesh019_7.skeleton}
-              morphTargetDictionary={nodes.Mesh019_7.morphTargetDictionary}
-              morphTargetInfluences={nodes.Mesh019_7.morphTargetInfluences}
+              morphTargetDictionary={nodes.Mesh019.morphTargetDictionary}
+              morphTargetInfluences={morphTargetInfluences}
             >
               <meshStandardMaterial color={shoesColor} />
             </skinnedMesh>
@@ -133,8 +138,8 @@ function Woman(props) {
               geometry={nodes.Mesh019_8.geometry}
               material={materials.Sole}
               skeleton={nodes.Mesh019_8.skeleton}
-              morphTargetDictionary={nodes.Mesh019_8.morphTargetDictionary}
-              morphTargetInfluences={nodes.Mesh019_8.morphTargetInfluences}
+              morphTargetDictionary={nodes.Mesh019.morphTargetDictionary}
+              morphTargetInfluences={morphTargetInfluences}
             >
               <meshStandardMaterial color={soleColor} />
             </skinnedMesh>
@@ -145,8 +150,8 @@ function Woman(props) {
               geometry={nodes.Mesh019_9.geometry}
               material={materials.Laces}
               skeleton={nodes.Mesh019_9.skeleton}
-              morphTargetDictionary={nodes.Mesh019_9.morphTargetDictionary}
-              morphTargetInfluences={nodes.Mesh019_9.morphTargetInfluences}
+              morphTargetDictionary={nodes.Mesh019.morphTargetDictionary}
+              morphTargetInfluences={morphTargetInfluences}
             >
               <meshStandardMaterial color={laceColor} />
             </skinnedMesh>

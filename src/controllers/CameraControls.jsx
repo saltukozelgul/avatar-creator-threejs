@@ -6,6 +6,10 @@ import { cameraModes } from "../enums/cameraModes";
 import { useRef, useState } from "react";
 
 const cameraPositions = {
+    [cameraModes.EXP]: {
+        position: new THREE.Vector3(0, 0.5, 1),
+        lookAt: new THREE.Vector3(0, 0.5, 0),
+    },
     [cameraModes.HEAD]: {
         position: new THREE.Vector3(0, 0.5, 1),
         lookAt: new THREE.Vector3(0, 0.5, 0),

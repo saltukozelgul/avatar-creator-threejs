@@ -15,6 +15,10 @@ export const CharacterCustomizationProvider = ({ children }) => {
     const [laceColor, setLaceColor] = useState('#ffffff');
     const [soleColor, setSoleColor] = useState('#000000');
 
+    // Facial Expressions
+    const [morphTargetDictionary, setMorphTargetDictionary] = useState([]);
+    const [morphTargetInfluences, setMorphTargetInfluences] = useState([]);
+
   return (
     <CharacterCustomizationContext.Provider value={{ 
         camMode, 
@@ -37,6 +41,10 @@ export const CharacterCustomizationProvider = ({ children }) => {
         setLaceColor,
         soleColor,
         setSoleColor,
+        morphTargetDictionary,
+        setMorphTargetDictionary,
+        morphTargetInfluences,
+        setMorphTargetInfluences
         }}>
       {children}
     </CharacterCustomizationContext.Provider>

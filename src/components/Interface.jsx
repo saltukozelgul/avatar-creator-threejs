@@ -4,13 +4,14 @@ import { useCharacterCustomization } from "../contexts/CharacterCustomization";
 import { cameraModes } from "../enums/cameraModes";
 
 // Icons
-import { IconMoodHappy, IconShirt, IconShoe, IconBulb, IconMoon, IconSun } from "@tabler/icons-react";
+import { IconMoodHappy, IconShirt, IconShoe, IconBulb, IconMoon, IconSun, IconMoodSadSquint, IconMoodSad2, IconMoodPuzzled } from "@tabler/icons-react";
 import { useHudSettings } from "../contexts/HudSettings";
 import { HeadConfig } from "./Configurators/HeadConfig";
 import { BodyConfig } from "./Configurators/BodyConfig";
 import { LegConfig } from "./Configurators/LegConfig";
 import { useState } from "react";
 import { LightConfig } from "./Configurators/LightConfig";
+import { ExpressionConfig } from "./Configurators/ExpressionConfig";
 
 const camelCaseToWords = (camelCase) => {
   const result = camelCase.replace(/([A-Z])/g, " $1");
@@ -66,7 +67,7 @@ const Interface = () => {
               variant={mode === camMode ? "filled" : "light"}
               onClick={() => setCamMode(cameraModes[mode])}  // Ensure you pass the correct value
             >
-              { mode === cameraModes.HEAD ? <IconMoodHappy /> : mode === cameraModes.TOP ? <IconShirt /> : mode === cameraModes.BOTTOM ? <IconShoe /> : "Free Camera" }
+              { mode === cameraModes.HEAD ? <IconMoodHappy /> : mode === cameraModes.TOP ? <IconShirt /> : mode === cameraModes.BOTTOM ? <IconShoe /> : mode === cameraModes.EXP ? <div><IconMoodSadSquint/> <IconMoodPuzzled/> <IconMoodSad2/></div> : "Free Camera" }
             </Button>
           ))}
          { lightSettings && <LightConfig /> }
@@ -76,6 +77,7 @@ const Interface = () => {
         { camMode === cameraModes.HEAD && <HeadConfig /> }
         { camMode === cameraModes.TOP && <BodyConfig /> }
         { camMode === cameraModes.BOTTOM && <LegConfig /> }
+        { camMode === cameraModes.EXP && <ExpressionConfig /> }
       </Affix>
       <Affix position={{ top: 20, right: 20 }}>
         <Stack>

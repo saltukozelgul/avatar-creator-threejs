@@ -1,4 +1,4 @@
-import { Stack, ColorInput } from "@mantine/core";
+import { Stack, ColorInput, Title } from "@mantine/core";
 import { useCharacterCustomization } from "../../contexts/CharacterCustomization";
 
 export const LegConfig = () => {
@@ -10,6 +10,7 @@ export const LegConfig = () => {
 
     return (
     <Stack>
+        <Title order={3}>Leggings Settings</Title>
         <ColorInput label="Pants Color" value={pantsColor} onChange={setPantsColor} />
         <ColorInput label="Shoes Color" value={shoesColor} onChange={setShoesColor} />
         <ColorInput label="Laces Color" value={laceColor} onChange={setLaceColor} />
