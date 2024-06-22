@@ -1,5 +1,7 @@
 import { OrbitControls } from "@react-three/drei";
 import Woman from "./Woman";
+import { Mirror } from "./Mirror";
+import { Room } from "./Room";
 import { CameraControls } from "../controllers/CameraControls";
 import { LightControls } from "../controllers/LightControls";
 import { useHudSettings } from "../contexts/HudSettings";
