@@ -19,7 +19,7 @@ const Experience = () => {
       <LightControls />
       <group position={[0, -1, 0]}>
         <Woman />
-        { ![1,2,3].includes(animationIndex) && <Bedroom scale={[1.5, 1.5, 1.5 ]} position={[0,-0.08,0]} /> }
+        { ![1,2,3].includes(animationIndex) && <Bedroom scale={[1.2, 1.2, 1.2 ]} position={[0,-0.08,0]} /> }
         { animationIndex == 1 && <ConcertStage scale={[0.25,0.25,0.25]} position={[0,-0.8,0]} /> }
         { animationIndex == 2 && <Park scale={[1.2, 1.2, 1.2 ]} rotation={[0,-0.45*Math.PI,0]} />}
         { animationIndex == 3 && <Nightclub /> }
