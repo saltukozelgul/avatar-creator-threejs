@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { cameraModes } from '../enums/cameraModes';
 import { RepeatWrapping,TextureLoader, ImageUtils, Texture } from 'three';
 import { useLoader } from '@react-three/fiber';
@@ -15,6 +15,19 @@ export const generateRandomRGB = () => {
 const CharacterCustomizationContext = createContext({});
 
 export const CharacterCustomizationProvider = ({ children }) => {
+  const [character, setCharacter] = useState(2);
+  useEffect(() => {
+    console.log("Character: ", character);
+    if (character === 2) {
+      setEyeColor("#000000");
+      setShirtColor("#fff");
+      setShoesColor("#000");
+    } else {
+      setEyeColor("#fff");
+      setShirtColor("#432C9F");
+      setShoesColor("#63530a");
+    }
+  }, [character]);
   const [camMode, setCamMode] = useState(cameraModes.FREE);
   const [hairColor, setHairColor] = useState('#6e4545');
   const [skinColor, setSkinColor] = useState('#ab8d60');
@@ -25,6 +38,8 @@ export const CharacterCustomizationProvider = ({ children }) => {
   const [mouthColor, setMouthColor] = useState('#D9564D');
   const [laceColor, setLaceColor] = useState('#ffffff');
   const [soleColor, setSoleColor] = useState('#000000');
+  const [buttonsColor, setButtonsColor] = useState('#000');
+  const [suitColor, setSuitColor] = useState('#282828');
   // add randomize colors for all colors
   const setRandomizeCharacter = () => {
     setHairColor(generateRandomRGB());
@@ -36,6 +51,8 @@ export const CharacterCustomizationProvider = ({ children }) => {
     setMouthColor(generateRandomRGB());
     setLaceColor(generateRandomRGB());
     setSoleColor(generateRandomRGB());
+    setButtonsColor(generateRandomRGB());
+    setSuitColor(generateRandomRGB());
   }
 
   // Facial Expressions
@@ -61,6 +78,8 @@ export const CharacterCustomizationProvider = ({ children }) => {
 
   return (
     <CharacterCustomizationContext.Provider value={{ 
+        character,
+        setCharacter,
         camMode, 
         setCamMode,
         hairColor,
@@ -81,6 +100,10 @@ export const CharacterCustomizationProvider = ({ children }) => {
         setLaceColor,
         soleColor,
         setSoleColor,
+        buttonsColor,
+        setButtonsColor,
+        suitColor,
+        setSuitColor,
         morphTargetDictionary,
         setMorphTargetDictionary,
         morphTargetInfluences,

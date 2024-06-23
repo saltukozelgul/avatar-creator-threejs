@@ -1,0 +1,11 @@
+Model Information:
+* title:	Vincent Vega
+* source:	https://sketchfab.com/3d-models/vincent-vega-426e2fe4a13c4cc78b280b4d76c72007
+* author:	Jan Bláha (https://sketchfab.com/swifterik)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Vincent Vega" (https://sketchfab.com/3d-models/vincent-vega-426e2fe4a13c4cc78b280b4d76c72007) by Jan Bláha (https://sketchfab.com/swifterik) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

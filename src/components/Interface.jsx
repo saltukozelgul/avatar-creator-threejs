@@ -4,7 +4,7 @@ import { useCharacterCustomization } from "../contexts/CharacterCustomization";
 import { cameraModes } from "../enums/cameraModes";
 
 // Icons
-import { IconMoodHappy, IconShirt, IconShoe, IconBulb, IconDice5Filled, IconMoon, IconSun, IconMoodSadSquint, IconMoodSad2, IconMoodPuzzled } from "@tabler/icons-react";
+import { IconUsersGroup, IconMoodHappy, IconShirt, IconShoe, IconBulb, IconDice5Filled, IconMoon, IconSun, IconMoodSadSquint, IconMoodSad2, IconMoodPuzzled } from "@tabler/icons-react";
 import { useHudSettings } from "../contexts/HudSettings";
 import { HeadConfig } from "./Configurators/HeadConfig";
 import { BodyConfig } from "./Configurators/BodyConfig";
@@ -20,7 +20,7 @@ const camelCaseToWords = (camelCase) => {
 
 const Interface = () => {
   const { animations, animationIndex, setAnimationIndex } = useCharacterAnimations();
-  const { camMode, setCamMode, setRandomizeCharacter } = useCharacterCustomization();
+  const { camMode, setCamMode, setRandomizeCharacter, character, setCharacter } = useCharacterCustomization();
   const { hudColor, setHudColor, isDarkMode, setIsDarkMode } = useHudSettings();
   const [ lightSettings, setLightSettings ] = useState(false);
   return (
@@ -64,6 +64,14 @@ const Interface = () => {
               onClick={() => setRandomizeCharacter()}
             >
              <IconDice5Filled />
+            </Button>
+            <Button
+              key="change_character"
+              color={hudColor}
+              variant={lightSettings ? "filled" : "light"}
+              onClick={() => setCharacter(character === 1 ? 2 : 1)}
+            >
+             <IconUsersGroup />
             </Button>
             
           </Group>
