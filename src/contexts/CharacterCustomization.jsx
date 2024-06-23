@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import { cameraModes } from '../enums/cameraModes';
+import { RepeatWrapping,TextureLoader, ImageUtils, Texture } from 'three';
+import { useLoader } from '@react-three/fiber';
 
 export const generateRandomRGB = () => {
   var letters = '0123456789ABCDEF';
@@ -40,6 +42,23 @@ export const CharacterCustomizationProvider = ({ children }) => {
   const [morphTargetDictionary, setMorphTargetDictionary] = useState([]);
   const [morphTargetInfluences, setMorphTargetInfluences] = useState([]);
 
+  // Textures for clothing
+  const [shirtTextureIndex, setShirtTextureIndex] = useState(1);
+  const [pantTextureIndex, setPantTextureIndex] = useState(1);
+
+
+  const updateTexture = (index, part) => {
+      if (part === 'shirt') {
+        console.log("Updating shirt texture to: ", index);
+        setShirtTextureIndex(index);
+      }
+      if (part === 'pants') {
+        console.log("Updating pants texture to: ", index);
+        setPantTextureIndex(index);
+      }
+    }
+  
+
   return (
     <CharacterCustomizationContext.Provider value={{ 
         camMode, 
@@ -66,7 +85,10 @@ export const CharacterCustomizationProvider = ({ children }) => {
         setMorphTargetDictionary,
         morphTargetInfluences,
         setMorphTargetInfluences,
-        setRandomizeCharacter
+        setRandomizeCharacter,
+        shirtTextureIndex,
+        updateTexture,
+        pantTextureIndex
         }}>
       {children}
     </CharacterCustomizationContext.Provider>
