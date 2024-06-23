@@ -5,7 +5,7 @@ const HudSettingsContext = createContext({})
 
 export const HudSettingsProvider = ({ children }) => {
     const [hudColor, setHudColor] = useState('grape');
-    const [isDarkMode, setIsDarkMode] = useState(true);
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     const [lightColor, setLightColor] = useState('#ffffff');
     const [lightPosition, setLightPosition] = useState(new THREE.Vector3(0, 0, 0));
