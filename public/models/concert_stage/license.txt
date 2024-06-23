@@ -1,0 +1,11 @@
+Model Information:
+* title:	Concert Stage
+* source:	https://sketchfab.com/3d-models/concert-stage-4f0cbcb0b1b64d5e88ec1122e23d9d4c
+* author:	Koekphon (https://sketchfab.com/acokirito)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Concert Stage" (https://sketchfab.com/3d-models/concert-stage-4f0cbcb0b1b64d5e88ec1122e23d9d4c) by Koekphon (https://sketchfab.com/acokirito) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

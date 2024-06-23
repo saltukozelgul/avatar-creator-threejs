@@ -1,0 +1,11 @@
+Model Information:
+* title:	Nightclub
+* source:	https://sketchfab.com/3d-models/nightclub-a6f7bef664274cb498963177c48e7e96
+* author:	MozillaHubs (https://sketchfab.com/mozillareality)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Nightclub" (https://sketchfab.com/3d-models/nightclub-a6f7bef664274cb498963177c48e7e96) by MozillaHubs (https://sketchfab.com/mozillareality) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
