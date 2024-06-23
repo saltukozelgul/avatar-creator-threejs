@@ -16,6 +16,7 @@ const CharacterCustomizationContext = createContext({});
 
 export const CharacterCustomizationProvider = ({ children }) => {
   const [character, setCharacter] = useState(2);
+
   useEffect(() => {
     console.log("Character: ", character);
     if (character === 2) {
@@ -28,6 +29,7 @@ export const CharacterCustomizationProvider = ({ children }) => {
       setShoesColor("#63530a");
     }
   }, [character]);
+
   const [camMode, setCamMode] = useState(cameraModes.FREE);
   const [hairColor, setHairColor] = useState('#6e4545');
   const [skinColor, setSkinColor] = useState('#ab8d60');
