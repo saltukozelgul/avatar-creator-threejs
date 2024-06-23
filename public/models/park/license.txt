@@ -1,0 +1,11 @@
+Model Information:
+* title:	Park
+* source:	https://sketchfab.com/3d-models/park-93f9838bf1d34b5bbcb878948a296827
+* author:	combine_soldier (https://sketchfab.com/combine_soldier)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Park" (https://sketchfab.com/3d-models/park-93f9838bf1d34b5bbcb878948a296827) by combine_soldier (https://sketchfab.com/combine_soldier) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
