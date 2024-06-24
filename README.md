@@ -1,17 +1,32 @@
-# r3f-character-customization-started
+# 3D Avatar Creator
 
-Starting pack containing :
-- Three.js
-- React Three Fiber (r3f)
-- Drei
-- Mantine UI
-- 3D Model with ready animations and shape keys
+This project was developed for a Computer Graphics course assignment at Gazi University.
 
-## Setup
-```
-yarn install
-yarn dev
-```
+## Description
 
+This project is a demonstration of character customization using React Three Fiber (r3f). It showcases various features and techniques for creating interactive and customizable 3D characters in a web application.
 
-![image](https://user-images.githubusercontent.com/6551176/205005323-6c7ca9bf-d877-48da-bbd4-a886590855c8.png)
+## Features
+
+- Interactive 3D character model
+- Customizable appearance options
+- Real-time updates
+- User-friendly interface
+
+## Installation
+
+1. Clone the repository: `git clone https://github.com/saltukozelgul/avatar-creator-threejs.git`
+2. Navigate to the project directory: `cd avatar-creator-threejs`
+3. Install dependencies: `npm install`
+
+## Usage
+
+1. Start the development server: `npm run dev`
+2. Open your browser and go to `http://localhost:<PORT>`
+3. Customize the character's appearance using the provided options
+4. Interact with the character using the mouse or touch controls
+
+## Contributing
+
+Contributions are welcome! If you have any ideas or improvements, feel free to submit a pull request.
+
