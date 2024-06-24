@@ -21,7 +21,7 @@ const Experience = () => {
       <LightControls />
       <group position={[0, -1, 0]}>
         { character === 2 && <Woman />}
-        { character === 1 && <Man rotation={[0,0.2*Math.PI,0]} position={[0,0.0,0]} /> }
+        { character === 1 && <Man rotation={[0,1.2*Math.PI,0]} position={[0,0.0,0]} /> }
 
         { scene === 0 && <Bedroom scale={[1.2, 1.2, 1.2 ]} position={[0,-0.08,0]} /> }
         { scene === 1 && <ConcertStage scale={[0.25,0.25,0.25]} position={[0,-0.8,0]} /> }
