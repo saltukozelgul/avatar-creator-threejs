@@ -1,25 +1,23 @@
-import { Canvas,events } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import Experience from "./components/Experience";
 import Interface from "./components/Interface";
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, Loader } from "@mantine/core";
 import { useHudSettings } from "./contexts/HudSettings";
-import { useState,useEffect } from "react";
-import { Loader } from "@mantine/core";
+import { useState, useEffect } from "react";
 import { useProgress } from "@react-three/drei";
 
 function App() {
-  const {isDarkMode} = useHudSettings();
-  const [isLoading, setIsLoading] = useState(true)
-  const { active, progress, errors, item, loaded, total } = useProgress()
+  const { isDarkMode } = useHudSettings();
+  const [isLoading, setIsLoading] = useState(true);
+  const { active, progress } = useProgress();
 
   useEffect(() => {
     if (!active) {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }, [active])
+  }, [active]);
 
-
-  return (    
+  return (
     <MantineProvider
       withGlobalStyles
       withNormalizeCSS
@@ -29,21 +27,47 @@ function App() {
           body: {
             width: "100vw",
             height: "100vh",
+            margin: 0,
           },
           "#root": {
             width: "100%",
             height: "100%",
+            position: "relative",
           },
         }),
       }}
     >
-      <div style={{ position:"absolute", display: "flex", flexDirection:"column", justifyContent: "center", alignItems: "center", width: "100vw", height: "100vh", opacity: isLoading ? 1 : 0, transition: "opacity 0.5s", zIndex:"100" }}>
-        <h3>Loading { progress.toFixed(2) }%</h3>
+      <div
+        style={{
+          position: "absolute",
+          display: isLoading ? "flex" : "none",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: "100%",
+          opacity: isLoading ? 1 : 0,
+          transition: "opacity 0.5s",
+          zIndex: 100,
+          backgroundColor: isDarkMode ? "black" : "white", // Optional: To cover the canvas with a solid color
+        }}
+      >
+        <h3>Loading {progress.toFixed(2)}%</h3>
         <Loader />
-      </div> 
-      <Canvas camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows style={{ transition: "opacity 0.5s", opacity: isLoading ? 0 : 1, position:"absolute" }}>
-          <Experience />
-      </Canvas> 
+      </div>
+      <Canvas
+        camera={{ position: [1, 1.5, 2.5], fov: 50 }}
+        shadows
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          transition: "opacity 0.5s",
+          opacity: isLoading ? 0 : 1,
+        }}
+      >
+        <Experience />
+      </Canvas>
       <Interface />
     </MantineProvider>
   );
