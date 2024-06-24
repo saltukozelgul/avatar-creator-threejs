@@ -37,17 +37,13 @@ function App() {
         }),
       }}
     >
-      { isLoading ? 
-      <div style={{ display: "flex", flexDirection:"column", justifyContent: "center", alignItems: "center", width: "100vw", height: "100vh" }}>
+      <div style={{ position:"absolute", display: "flex", flexDirection:"column", justifyContent: "center", alignItems: "center", width: "100vw", height: "100vh", opacity: isLoading ? 1 : 0, transition: "opacity 0.5s", zIndex:"100" }}>
         <h3>Loading { progress.toFixed(2) }%</h3>
         <Loader />
       </div> 
-      : 
-      <Canvas camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>
+      <Canvas camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows style={{ transition: "opacity 0.5s", opacity: isLoading ? 0 : 1, position:"absolute" }}>
           <Experience />
       </Canvas> 
-      }
-
       <Interface />
     </MantineProvider>
   );
