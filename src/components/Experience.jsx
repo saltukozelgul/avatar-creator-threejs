@@ -10,6 +10,7 @@ import { useHudSettings } from "../contexts/HudSettings";
 import { useCharacterAnimations } from "../contexts/CharacterAnimations";
 import { useCharacterCustomization } from "../contexts/CharacterCustomization";
 import Man from "./Man";
+import NeonBedroom from "./NeonBedroom";
 
 const Experience = () => {
   const { lightColor, lightIntensity, lightDistance, lightAngle } = useHudSettings();
@@ -23,7 +24,7 @@ const Experience = () => {
         { character === 2 && <Woman />}
         { character === 1 && <Man rotation={[0,1.2*Math.PI,0]} position={[0,0.0,0]} /> }
 
-        { scene === 0 && <Bedroom scale={[1.2, 1.2, 1.2 ]} position={[0,-0.08,0]} /> }
+        { scene === 0 && <NeonBedroom scale={[1.4, 1.4, 1.4 ]} position={[0,1.75,-3.2]} /> }
         { scene === 1 && <ConcertStage scale={[0.25,0.25,0.25]} position={[0,-0.8,0]} /> }
         { scene === 2 && <Park scale={[1.2, 1.2, 1.2 ]} rotation={[0,-0.45*Math.PI,0]} />}
         { scene === 3 && <Nightclub /> }

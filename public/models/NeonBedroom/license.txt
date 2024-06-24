@@ -1,0 +1,11 @@
+Model Information:
+* title:	Neon Bedroom
+* source:	https://sketchfab.com/3d-models/neon-bedroom-cece4d1882994721811afdd500d8bcf3
+* author:	dylanheyes (https://sketchfab.com/dylanheyes)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Neon Bedroom" (https://sketchfab.com/3d-models/neon-bedroom-cece4d1882994721811afdd500d8bcf3) by dylanheyes (https://sketchfab.com/dylanheyes) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
