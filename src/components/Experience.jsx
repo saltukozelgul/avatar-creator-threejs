@@ -1,6 +1,5 @@
 import { OrbitControls, Stage } from "@react-three/drei";
 import Woman from "./Woman";
-import Bedroom from "./Bedroom";
 import Nightclub from "./Nightclub";
 import ConcertStage from "./ConcertStage";
 import Park from "./Park";
