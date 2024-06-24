@@ -17,6 +17,8 @@ const CharacterCustomizationContext = createContext({});
 export const CharacterCustomizationProvider = ({ children }) => {
   const [character, setCharacter] = useState(2);
 
+  const [scene, setScene] = useState(0);
+
   useEffect(() => {
     console.log("Character: ", character);
     if (character === 2) {
@@ -113,7 +115,9 @@ export const CharacterCustomizationProvider = ({ children }) => {
         setRandomizeCharacter,
         shirtTextureIndex,
         updateTexture,
-        pantTextureIndex
+        pantTextureIndex,
+        setScene,
+        scene,
         }}>
       {children}
     </CharacterCustomizationContext.Provider>

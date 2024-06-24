@@ -2,9 +2,20 @@ import { Stack, ColorInput, Title, Group, Slider } from "@mantine/core";
 import { useCharacterCustomization } from "../../contexts/CharacterCustomization";
 
 export const ExpressionConfig = () => {
+    const {character, setCharacter} = useCharacterCustomization();
+
+    return (
+        <>
+           { character === 2 && <ForWomen />}
+           { character === 1 && <ForMen />}
+        </>
+    );
+    }
+
+
+const ForWomen = () => {
     const {morphTargetDictionary, setMorphTargetDictionary} = useCharacterCustomization();
     const {morphTargetInfluences, setMorphTargetInfluences} = useCharacterCustomization();
-
     return (
         <Stack spacing={10}>
             <Title order={3}>Expressions</Title>
@@ -31,4 +42,12 @@ export const ExpressionConfig = () => {
         <ColorInput opacity={0} disabled label="Light Color"/>
         </Stack>
     );
-    }
+}
+
+const ForMen = () => {
+    return (
+        <Stack spacing={10}>
+            <Title order={3}>No expression for man</Title>
+        </Stack>
+    );
+}

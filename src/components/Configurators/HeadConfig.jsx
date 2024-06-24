@@ -7,8 +7,7 @@ export const HeadConfig = () => {
     const {eyeColor, setEyeColor} = useCharacterCustomization();
     const {mouthColor, setMouthColor} = useCharacterCustomization();
 
-    const {morphTargetDictionary, setMorphTargetDictionary} = useCharacterCustomization();
-    const {morphTargetInfluences, setMorphTargetInfluences} = useCharacterCustomization();
+    const {character, setCharacter} = useCharacterCustomization();
 
     return (
         <Group style={{padding: "1rem"}}>
@@ -17,7 +16,8 @@ export const HeadConfig = () => {
                 <ColorInput label="Hair Color" value={hairColor} onChange={setHairColor} />
                 <ColorInput label="Skin Color" value={skinColor} onChange={setSkinColor} />
                 <ColorInput label="Eyes Color" value={eyeColor} onChange={setEyeColor} />
-                <ColorInput label="Mouth Color" value={mouthColor} onChange={setMouthColor} />
+                { character === 2 && <ColorInput label="Mouth Color" value={mouthColor} onChange={setMouthColor} /> }
+               
             </Stack>
         </Group>
 

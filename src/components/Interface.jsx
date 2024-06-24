@@ -19,8 +19,8 @@ const camelCaseToWords = (camelCase) => {
 }
 
 const Interface = () => {
-  const { animations, animationIndex, setAnimationIndex } = useCharacterAnimations();
-  const { camMode, setCamMode, setRandomizeCharacter, character, setCharacter } = useCharacterCustomization();
+  const { animations, animationIndex, setAnimationIndex, manAnimations, manAnimationsIndex, setManAnimationsIndex } = useCharacterAnimations();
+  const { camMode, setCamMode, setRandomizeCharacter, character, setCharacter, scene, setScene } = useCharacterCustomization();
   const { hudColor, setHudColor, isDarkMode, setIsDarkMode } = useHudSettings();
   const [ lightSettings, setLightSettings ] = useState(false);
   return (
@@ -107,16 +107,65 @@ const Interface = () => {
       </Affix>
       <Affix position={{ bottom: 50, right: 20 }}>
         <Stack>
-          {animations.map((animation, index) => (
+          { character === 1 && manAnimations.map((animation, index) => (
             <Button
               key={animation}
               color={hudColor}
-              variant={index === animationIndex ? "filled" : "light"}
-              onClick={() => setAnimationIndex(index)}
+              variant={index === manAnimationsIndex ? "filled" : "light"}
+              onClick={() => {
+                if (index === manAnimationsIndex) {
+                    setManAnimationsIndex(0);
+                } else {
+                    setManAnimationsIndex(index);
+                }
+              }
+              }
             >
               {camelCaseToWords(animation)}
             </Button>
           ))}
+          { character === 2 && animations.map((animation, index) => (
+            <Button
+            key={animation}
+            color={hudColor}
+            variant={index === animationIndex ? "filled" : "light"}
+            onClick={() => setAnimationIndex(index)}
+          >
+            {camelCaseToWords(animation)}
+          </Button>
+          ))}
+        </Stack>
+      </Affix>
+      <Affix position={{ bottom: 50, left: 20 }}>
+        <Stack>
+          <Button
+            color={hudColor}
+            variant={scene === 0 ? "filled" : "light"}
+            onClick={() => setScene(0)}
+          >
+              Bedroom
+          </Button>
+          <Button
+            color={hudColor}
+            variant={scene === 1 ? "filled" : "light"}
+            onClick={() => setScene(1)}
+            >
+              Concert
+          </Button>
+          <Button
+            color={hudColor}
+            variant={scene === 2 ? "filled" : "light"}
+            onClick={() => setScene(2)}
+            >
+              Park
+          </Button>
+          <Button
+            color={hudColor}
+            variant={scene === 3 ? "filled" : "light"}
+            onClick={() => setScene(3)}
+            >
+              Night Clup
+          </Button>
         </Stack>
       </Affix>
     </>

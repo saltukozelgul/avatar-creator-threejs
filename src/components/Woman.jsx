@@ -41,7 +41,9 @@ function Woman(props) {
   useEffect(() => {
     actions[names[animationIndex]].reset().fadeIn(0.5).play();
     return () => {
-      actions[names[animationIndex]].fadeOut(0.5);
+      if (actions[names[animationIndex]]) {
+        actions[names[animationIndex]].fadeOut(0.5);
+      }
     };
   }, [animationIndex]);
 

@@ -16,14 +16,16 @@ import { useCharacterCustomization } from "../contexts/CharacterCustomization";
 export default function Man(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/models/man/scene.gltf')
-  const { setAnimations, animationIndex } = useCharacterAnimations();
+  const { setManAnimations, manAnimations, manAnimationsIndex  } = useCharacterAnimations();
   const { actions, names } = useAnimations(animations, group)
   const { buttonsColor, suitColor, setEyeColor, setShirtColor, setShoesColor, hairColor, skinColor, eyeColor, mouthColor, shirtColor, shoesColor, pantsColor, soleColor, laceColor, morphTargetDictionary, morphTargetInfluences, setMorphTargetDictionary, setMorphTargetInfluences, shirtTextureIndex, pantTextureIndex } = useCharacterCustomization();
   const [shirtTexture, setShirtTexture] = useState(useLoader(TextureLoader, "./shirt_textures/1.jpg"));
   const [pantTexture, setPantTexture] = useState(useLoader(TextureLoader, "./pant_textures/1.jpg"));
 
   useEffect(() => {
-    setAnimations(names);
+    // add idle animation
+    names.push("idle");
+    setManAnimations(names);
   }, [names]);
 
   useEffect(() => {
@@ -42,11 +44,18 @@ export default function Man(props) {
     
 
   useEffect(() => {
-    actions[names[animationIndex]].reset().fadeIn(0.5).play();
+    if (manAnimationsIndex === 1) {
+      // no animation
+      return;
+
+    }
+    actions[names[manAnimationsIndex]].reset().fadeIn(0.5).play();
     return () => {
-      actions[names[animationIndex]].fadeOut(0.5);
+      if (actions[names[manAnimationsIndex]]) {
+        actions[names[manAnimationsIndex]].fadeOut(0.5);
+      }
     };
-  }, [animationIndex]);
+  }, [manAnimationsIndex]);
 
   return (
     <group ref={group} {...props} dispose={null}>
