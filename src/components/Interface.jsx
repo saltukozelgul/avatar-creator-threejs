@@ -164,7 +164,7 @@ const Interface = () => {
             variant={scene === 3 ? "filled" : "light"}
             onClick={() => setScene(3)}
             >
-              Night Clup
+              Night Club
           </Button>
         </Stack>
       </Affix>
