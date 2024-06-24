@@ -20,9 +20,10 @@ export const LegConfig = () => {
         <ColorInput label="Sole Color" value={soleColor} onChange={setSoleColor} />
         </> }
         {
-            character === 1 && 
-            <Title order={3}> No leggings for man
-            </Title> 
+            character === 1 && <>
+                <Title order={3}>Leggings Settings</Title>
+            <ColorInput label="Shoes Color" value={shoesColor} onChange={setShoesColor} />
+            </>
         }
 
     </Stack>

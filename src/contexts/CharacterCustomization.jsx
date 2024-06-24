@@ -21,7 +21,7 @@ export const CharacterCustomizationProvider = ({ children }) => {
 
   useEffect(() => {
     console.log("Character: ", character);
-    if (character === 2) {
+    if (character === 1) {
       setEyeColor("#000000");
       setShirtColor("#fff");
       setShoesColor("#000");
